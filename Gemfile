@@ -1,8 +1,19 @@
 source 'https://rubygems.org'
 
+<<<<<<< HEAD
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+=======
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.1'
+>>>>>>> c7f38dfa1ee0aa75671399dd4a09e737f1a31e88
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -14,12 +25,17 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
+<<<<<<< HEAD
 gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
 
 gem 'carrierwave'
 gem 'rmagick'
+=======
+# gem 'therubyracer', platforms: :ruby
+
+>>>>>>> c7f38dfa1ee0aa75671399dd4a09e737f1a31e88
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -41,7 +57,11 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+<<<<<<< HEAD
   gem 'web-console'
+=======
+  gem 'web-console', '>= 3.3.0'
+>>>>>>> c7f38dfa1ee0aa75671399dd4a09e737f1a31e88
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -49,4 +69,8 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+<<<<<<< HEAD
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
+=======
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+>>>>>>> c7f38dfa1ee0aa75671399dd4a09e737f1a31e88
