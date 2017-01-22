@@ -1,2 +1,12 @@
 <h1>User#show</h1>
 <p>Find me in app/views/user/show.html.erb</p>
+
+
+<% @articles.each do |article| %>
+<!-- フォローの人数を表示 -->
+	<% if article.user.followed_by? current_user %>
+	  <%= link_to "フォロー解除", user_relationships_path(article.user), method: :delete %>
+	<% else %>
+	  <%= link_to "フォロー", user_relationships_path(article.user), method: :post %>
+	<% end %>
+<% end %>

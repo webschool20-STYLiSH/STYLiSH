@@ -3,6 +3,7 @@ class UserController < ApplicationController
   end
 
   def show
+    @articles = Article.all
   end
 
   def edit
@@ -13,4 +14,13 @@ class UserController < ApplicationController
 
   def delete
   end
+
+  def follows
+    @user = @User.find(params[:id])
+  end
+
+  def followers
+    @user = @User.find(params[:id])
+  end
+
 end
