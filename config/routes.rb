@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   get '/top' => 'home#top'
 
   resources :users, :only => [:index, :show, :edit, :update, :destroy]
