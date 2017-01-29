@@ -5,5 +5,9 @@
 	<%= f.text_field :title, class: "..." %>
 		コメント
 	<%= f.text_field :body, class: "..."%>
+	<%= f.label :image %>
+	<%= f.file_field :image %>
 	<%= f.submit "保存", class: "..." %>
 	<% end %>
+
+<%= link_to "投稿一覧へ戻る", articles_path, class: "btn" %>

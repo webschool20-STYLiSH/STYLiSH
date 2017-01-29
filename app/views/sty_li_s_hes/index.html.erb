@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sty Li Shes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sty_li_shes.each do |sty_li_sh| %>
+      <tr>
+        <% if post.image? %>
+          <td><%=  image_tag post.image.url%></td>
+        <% else %>
+          <td><%= image_tag 'noimage.gif' %></td>
+        <% end %>
+        <td><%= sty_li_sh.image %></td>
+        <td><%= sty_li_sh.title %></td>
+        <td><%= sty_li_sh.body %></td>
+        <td><%= sty_li_sh.author %></td>
+        <td><%= link_to 'Show', sty_li_sh %></td>
+        <td><%= link_to 'Edit', edit_sty_li_sh_path(sty_li_sh) %></td>
+        <td><%= link_to 'Destroy', sty_li_sh, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sty Li Sh', new_sty_li_sh_path %>
