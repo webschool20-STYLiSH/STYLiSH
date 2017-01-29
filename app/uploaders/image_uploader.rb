@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   process :resize_to_limit => [100, 100]
-=======
+
 # encoding: utf-8
 
 
@@ -13,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
->>>>>>> ee2fae0e3961353f99ed03542eaa73f22ec8a736
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
