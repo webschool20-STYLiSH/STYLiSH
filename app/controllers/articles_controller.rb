@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = Article.new(params.require(:article).permit(:title, :body))
+  	@article = Article.new(article_params)
   	@article.save
   	redirect_to @article
   end
@@ -42,7 +42,5 @@ class ArticlesController < ApplicationController
   		@article = Article.find(params[:id])
   	end
 
-  	def article_params
-  		params.require(:article).permit(:title, :body)
-  	end
+  
 end
