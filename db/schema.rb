@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20170122020503) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.text     "profile"
