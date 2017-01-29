@@ -78,8 +78,5 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-<<<<<<< HEAD
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
-=======
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
->>>>>>> c7f38dfa1ee0aa75671399dd4a09e737f1a31e88
