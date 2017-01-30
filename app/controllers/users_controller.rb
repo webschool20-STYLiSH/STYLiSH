@@ -11,7 +11,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    User.update(params.require(:user).permit(:name, :email, :profile, :gender, :country))
+    # file = params[:user][:image]
+
+    # if !file.nil?
+    #   file_name = file.original_filename
+    #   File.open("public/user_image/#{file_name}", 'wb')
+    #     {|f| f.write(file.read)}
+
+    #   @user.image = file_name
+    # end
+
+    User.update(params.require(:user).permit(:name, :email, :profile, :gender, :country, :image))
     redirect_to user_path(@user.id)
   end
 

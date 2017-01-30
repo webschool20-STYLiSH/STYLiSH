@@ -1,14 +1,28 @@
-<h1>マイページをを編集</h1>
+<h1>マイページを編集</h1>
 <%= form_for (@user) do |f| %>
   <div class="field">
     ユーザー名<br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
+   <div class="field">
+    プロフィール画像<br />
+    <%= f.file_field :image, autofocus: true %>
+  </div>
+
   <div class="field">
+    <% if @user.image? %>
+    	<%=  image_tag @user.image.url %>
+    <% else %>
+    	<%= image_tag '画像がありません' %>
+    <% end %>
+  </div>
+
+
+ <!--   <div class="field">
     メール<br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+  </div> -->
 
    <div class="field">
     プロフィール<br />

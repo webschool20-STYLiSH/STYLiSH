@@ -1,7 +1,15 @@
 <h2>ユーザー名</h2>
 <p><%= @user.name %></p>
-<h2>メールアドレス</h2>
-<p><%= @user.email %></p>
+<!-- <h2>メールアドレス</h2> -->
+<!-- <p><%= @user.email %></p> -->
+<h2>プロフィール画像</h2>
+<p>
+	<% if @user.image? %>
+    	<%= image_tag @user.image.url %>
+    <% else %>
+    	<%= image_tag '画像がありません' %>
+    <% end %>
+</p>
 <h2>プロフィール</h2>
 <p><%= @user.profile %></p>
 <h2>性別</h2>
