@@ -1,0 +1,34 @@
+<h1>マイページをを編集</h1>
+<%= form_for (@user) do |f| %>
+  <div class="field">
+    ユーザー名<br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    メール<br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+   <div class="field">
+    プロフィール<br />
+    <%= f.text_area :profile, autofocus: true %>
+  </div>
+
+  <div class="field">
+    性別<br />
+    <%= f.text_field :gender, autofocus: true %>
+  </div>
+
+  <div class="field">
+    国名<br />
+    <%= f.text_field :country, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+
+<% end %>
+
+<%= link_to "マイページへ戻る", user_path, class: "btn" %>
