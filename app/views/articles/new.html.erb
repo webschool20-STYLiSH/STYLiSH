@@ -1,4 +1,4 @@
-<h1>新規投稿</h1>
+<h1>新しいコーディネート</h1>
 
 <%= form_for (@article) do |f| %>
 	タイトル
@@ -7,7 +7,11 @@
 	<%= f.text_field :body, class: "..."%>
 	<%= f.label :image %>
 	<%= f.file_field :image %>
+	<div class="field">
+		<%= f.label :interest_list, "tag" %><br>
+		<%= text_field_tag 'article[interest_list]', @article.interest_list.join(',') %>
+	</div>
 	<%= f.submit "保存", class: "..." %>
 	<% end %>
 
-<%= link_to "投稿一覧へ戻る", articles_path, class: "btn" %>
+<%= link_to "タイムラインへ戻る", articles_path, class: "btn" %>

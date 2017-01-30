@@ -1,1 +1,0 @@
-json.partial! "sty_li_shes/sty_li_sh", sty_li_sh: @sty_li_sh

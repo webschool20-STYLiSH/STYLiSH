@@ -25,7 +25,12 @@ gem 'devise'
 
 gem 'carrierwave'
 gem 'rmagick'
-# gem 'therubyracer', platforms: :ruby
+
+gem 'kaminari'
+
+gem 'acts-as-taggable-on'
+
+gem 'bootstrap-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
