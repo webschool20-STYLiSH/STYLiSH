@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   # devise用のcontrollerを作成したがおそらく必要でないので、
   # 最終的に不要であれば該当のcontrollerは削除する
   devise_for :users
+
   resources :users, :only => [:index, :edit, :show, :update] do
     get :favorites, on: :member
   end
   resources :articles do
     resource :favorites, only: [:create, :destroy]
   end
+
 
   # いらなくなったはず
   # resources :users, :only => [:index, :show, :edit, :update, :destroy]
