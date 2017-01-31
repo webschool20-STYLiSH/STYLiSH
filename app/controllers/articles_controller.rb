@@ -20,11 +20,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-  	@article =Article.find(params[:id])
+  	@article = Article.find(params[:id])
   end
 
   def update
-  	@article.update(article_params) 
+  	@article.update(article_params)
   	redirect_to article_path(@article.id)
   end
 
@@ -36,11 +36,10 @@ class ArticlesController < ApplicationController
 
   private
   	def article_params
-  		params.require(:article).permit(:title, :body, :image, :interest_list)
+  		params.require(:article).permit(:title, :body, :image, :interest_list, :user_id)
   	end
   	def set_article
   		@article = Article.find(params[:id])
   	end
 
-  
 end
