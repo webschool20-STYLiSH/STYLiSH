@@ -10,8 +10,17 @@
 		<% else %>
 		<p>画像がありません</p>
 	<% end %>
-
+	
 	<%= render 'articles/tag_list', tag_list: article.interest_list %>
+
+	<p>
+    	<% if article.favorited_by? current_user %>
+    		<%= link_to "いいね解除", article_favorites_path(article), method: :delete %>
+    	<% else %>
+    		<%= link_to "いいね", article_favorites_path(article), method: :article %>
+    	<% end %>
+    </p>
+
 
 <% end %>
 

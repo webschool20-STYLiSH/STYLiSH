@@ -9,6 +9,14 @@
 		<p>画像がありません</p>
 <% end %>
 
+	<p>
+    	<% if article.favorited_by? current_user %>
+    		<%= link_to "いいね解除", article_favorites_path(article), method: :delete %>
+    	<% else %>
+    		<%= link_to "いいね", article_favorites_path(article), method: :article %>
+    	<% end %>
+    </p>
+
 <br>
 
 <%= link_to "編集", edit_article_path(@article.id), class: "btn edit-btn" %>

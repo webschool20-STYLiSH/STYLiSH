@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only:[:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   def new
   	@article = Article.new
   end
@@ -42,16 +42,6 @@ class ArticlesController < ApplicationController
   	def set_article
   		@article = Article.find(params[:id])
   	end
-    def correct_user
-          article = article.find(params[:id])
-          if current_user.id != article.user.id
-            redirect_to root_path
-          end
-          if article.liked_by?(current_user)
-            いいね解除ボタン
-          else
-            いいねボタン
-          end
-    end
+    
 
 end
