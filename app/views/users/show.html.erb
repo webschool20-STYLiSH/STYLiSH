@@ -17,6 +17,11 @@
 <h2>国名</h2>
 <p><%= @user.country %></p>
 
-
-
 <%= link_to "編集", edit_user_path(@user.id), class: "btn edit-btn" %>
+
+
+<% @articles.each do |article| %>
+  <%= article.title %>
+  <!--<%= article.image.url %> -->
+  <%= article.body %>
+<% end %>
