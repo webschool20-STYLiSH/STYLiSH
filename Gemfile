@@ -24,7 +24,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 
 gem 'carrierwave'
-
 gem 'rmagick'
 
 gem 'kaminari'
