@@ -21,7 +21,7 @@
 
 
 <% @articles.each do |article| %>
-  <%= article.title %>
-  <!--<%= article.image.url %> -->
-  <%= article.body %>
+  <%= link_to article.title, article_path(article.id) %>
+  <%= image_tag article.image.url %>
+  <!-- <%= article.body %> -->
 <% end %>
