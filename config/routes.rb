@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get :favorites, on: :member
   get :follows, on: :member
   get :followers, on: :member
-end
+  end
 
 
   resources :users, :only => [:index, :edit, :show, :update] do
@@ -19,7 +19,7 @@ end
     resource :favorites, only: [:create, :destroy]
   end
 
-
+  resources :articles
 
   # いらなくなったはず
   # resources :users, :only => [:index, :show, :edit, :update, :destroy]
