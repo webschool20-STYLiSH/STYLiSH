@@ -18,6 +18,20 @@
 <p><%= @user.country %></p>
 
 <%= link_to "編集", edit_user_path(@user.id), class: "btn edit-btn" %>
+
+<li>
+      <%= link_to follows_user_path(@user) do %>
+        <div class="text">フォロー</div>
+        <div class="num"><%= @user.followings.count %></div>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to followers_user_path(@user) do %>
+        <div class="text">フォロワー</div>
+        <div class="num"><%= @user.followers.count %></div>
+      <% end %>
+    </li>
+
 <ul>
     <li>
       <%= link_to user_path(@user) do %>
@@ -29,7 +43,7 @@
       <%= link_to favorites_user_path(@user) do %>
         <div class="text">いいね一覧</div>
         <div class="num"><%= @user.favorites.count %></div>
-      <% end %>     
+      <% end %>
     </li>
 </ul>
 
@@ -42,8 +56,9 @@
     </h4>
     <div class="article-body">
         <%= article.body %>
-    </div>  
+    </div>
 <% end %>
+
 
 <% @articles.each do |article| %>
   <%= link_to article.title, article_path(article.id) %>
