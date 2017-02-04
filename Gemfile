@@ -32,6 +32,11 @@ gem 'acts-as-taggable-on'
 
 gem 'bootstrap-sass'
 
+# css&JSの読み込みに使用
+gem 'sprockets', '3.7.1'
+gem 'slim', '2.0.0'
+gem 'sprockets-rails', '3.2.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

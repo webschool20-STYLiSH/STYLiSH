@@ -5,10 +5,10 @@
 <h2>プロフィール画像</h2>
 <p>
 	<% if @user.image? %>
-    	<%= image_tag @user.image.url %>
-    <% else %>
-    	<%= image_tag '画像がありません' %>
-    <% end %>
+   	<%= image_tag @user.image.url %>
+  <% else %>
+   	<%= image_tag '画像がありません' %>
+  <% end %>
 </p>
 <h2>プロフィール</h2>
 <p><%= @user.profile %></p>

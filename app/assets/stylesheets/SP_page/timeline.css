@@ -1,0 +1,82 @@
+*{
+	font-family: Arial, meiryo, sans-serif;
+}
+
+a{
+	color: inherit;
+}
+
+.border{
+	list-style: none;
+	border: solid 1px #d0d0d0;
+}
+
+.background_color{
+	background-color: #FFF;
+}
+
+.margin{
+	padding: 20px;
+
+}
+
+.add_code{
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.add_code_text{
+	display: block;
+	padding: 3%;
+}
+
+article{
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+.user_name{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.follow{
+	display: inline-block;
+	float: right;
+	width: 130px;
+	height: 30px;
+	border-radius: 5px;
+	border: solid 3px #ffe033;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none
+}
+
+.not_follow{
+	color: #ffe033;
+}
+
+.followed{
+	background: #ffe033;
+	color: #FFF;
+}
+
+.title{
+	padding: 10px 0 0 0;
+	font-size: 14px;
+}
+
+.image_article{
+	width: 300px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+
+/*余裕ができたらやりたいこと*/
+
+/*画像にもリンクを*/
+/*UsernameにはUserのリンクを*/
+/*「コーデを追加」のはこの横幅を記事を揃えたい*/
+/*いいねの数をカウント*/
