@@ -12,20 +12,22 @@
 				<li class="border">
 					<article class="background_color">
 
-						<!-- プロフィール画像(機能しなかったのでコメントアウト) -->
-						<%# if user_image.present? %>
-					    	<%#= image_tag user_image.url %>
-					    <%# else %>
-					    	<%#= image_tag '画像がありません' %>
-					    <%# end %>
-
 						<div>
-					    <!-- ユーザー名 -->
+							<!-- プロフィール画像 -->
+							<span>
+								<% if article.user.image.present? %>
+							    	<%= link_to image_tag(article.user.image.url, {:size => "30x30"}), user_path(article.user.id) %>
+							    <% else %>
+							    	<%= image_tag '画像がありません' %>
+							    <% end %>
+							</span>
+
+					    	<!-- ユーザー名 -->
 					    	<span class="user_name">
 					    		<%= link_to article.user.name, user_path(article.user.id) %>
 					    	</span>
 
-						<!-- フォロー -->
+							<!-- フォロー -->
 							<% if article.user_id != current_user.id %>
 								<% if article.user.followed_by? current_user %>
 									<div class="follow not_follow"><%= link_to "フォローする", user_relationships_path(article.user), method: :delete %></div>

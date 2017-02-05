@@ -5,12 +5,6 @@ class ArticlesController < ApplicationController
   	@article = Article.new
   end
 
-  def create
-  	@article = Article.new(article_params)
-  	@article.save
-  	redirect_to @article
-  end
-
   def index
   	@articles = Article.page(params[:page]).per(12)
     #userのnameを表示させるときに使用予定
@@ -18,6 +12,12 @@ class ArticlesController < ApplicationController
 
     # プロフィール画像を載せるときに使用予定
     # user_image = @user.image
+  end
+
+  def create
+    @article = Article.new(article_params)
+    @article.save
+    redirect_to @article
   end
 
   def show
