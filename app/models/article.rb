@@ -13,4 +13,7 @@ class Article < ApplicationRecord
 	def favorited_by? user
     	favorites.where(user_id: user.id).exists?
 	end
+
+	# 記事を時刻の降順に並び替える
+	default_scope -> { order(created_at: :desc) }
 end
