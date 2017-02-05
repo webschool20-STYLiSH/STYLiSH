@@ -22,7 +22,7 @@
 						<div>
 					    <!-- ユーザー名 -->
 					    	<span class="user_name">
-					    		<%= User.name %>
+					    		<%= link_to article.user.name, user_path(article.user.id) %>
 					    	</span>
 
 						<!-- フォロー -->
