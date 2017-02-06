@@ -7,11 +7,6 @@ class ArticlesController < ApplicationController
 
   def index
   	@articles = Article.page(params[:page]).per(12)
-    #userのnameを表示させるときに使用予定
-    #user_id = Article.find_by(user_id: params[:user_id])
-
-    # プロフィール画像を載せるときに使用予定
-    # user_image = @user.image
   end
 
   def create
