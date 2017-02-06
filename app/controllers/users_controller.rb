@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @articles = @user.articles
@@ -12,7 +16,16 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # file = params[:user][:image]
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
+  end
+    # @user = params[:user]
+    # User.update(params.require(:user).permit(:name, :email, :profile, :gender, :country, :image))
+    # redirect_to user_path(@user.id)
+
+#  end
+
+      # file = params[:user][:image]
 
     # if !file.nil?
     #   file_name = file.original_filename
@@ -21,10 +34,6 @@ class UsersController < ApplicationController
 
     #   @user.image = file_name
     # end
-
-    User.update(params.require(:user).permit(:name, :email, :profile, :gender, :country, :image))
-    redirect_to user_path(@user.id)
-  end
 
 
   def follows
@@ -36,8 +45,14 @@ class UsersController < ApplicationController
   end
 
   def favorites
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
+  end
+
+private
+  def user_params
+    params.require(:user).permit(:name, :email, :profile, :gender, :country, :image)
+  end
+
 
 
 end
