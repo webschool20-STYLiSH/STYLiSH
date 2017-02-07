@@ -1,0 +1,122 @@
+/*以下はtimelineで使用したものと同様のCSS*/
+
+*{
+	font-family: Arial, meiryo, sans-serif;
+}
+
+a{
+	color: inherit;
+}
+
+.border{
+	list-style: none;
+	border: solid 1px #d0d0d0;
+}
+
+.background_color{
+	background-color: #FFF;
+}
+
+.margin{
+	padding: 20px;
+}
+
+.follow{
+	display: inline-block;
+	float: right;
+	width: 130px;
+	height: 30px;
+	border-radius: 5px;
+	border: solid 3px #ffe033;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none
+}
+
+.not_follow{
+	color: #ffe033;
+}
+
+.followed{
+	background: #ffe033;
+	color: #FFF;
+}
+
+article{
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+.title{
+	padding: 10px 0 0 0;
+	font-size: 14px;
+}
+
+.image_article{
+	width: 300px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+/*以下はマイページでのみ使用されるCSS*/
+
+.image_profile{
+	margin: 30px auto;
+	padding: 10px;
+	width: 262px;
+	height: 262px;
+}
+
+.profile_matome.col-md-6{
+	margin: 40px;
+}
+
+.user_name{
+	font-size: 40px;
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.text_center{
+	text-align: center;
+}
+
+.edit{
+	display: inline-block;
+	padding: 13px;
+	width: 130px;
+	height: 57px;
+	border-radius: 5px;
+	border: solid 3px #ffe033;
+	font-size: 20px;
+	color: #fff;
+	background: #ffe033;
+	text-align: center;
+	text-decoration: none
+}
+
+.user_info_li{
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	list-style: none;
+}
+
+.user_info_each{
+	height: 50px;
+	padding: 5px 0;
+}
+
+.text{
+
+}
+
+.num{
+	font-size: 20px;
+	color: #ffd700;
+	font-weight: bold;
+}
+
+.text_profile{
+	padding: 20px 80px 30px;
+}

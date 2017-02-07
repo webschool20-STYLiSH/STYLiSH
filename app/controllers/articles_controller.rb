@@ -5,14 +5,14 @@ class ArticlesController < ApplicationController
   	@article = Article.new
   end
 
-  def create
-  	@article = Article.new(article_params)
-  	@article.save
-  	redirect_to @article
+  def index
+  	@articles = Article.page(params[:page]).per(12)
   end
 
-  def index
-  	@articles = Article.page(params[:page]).per(10)
+  def create
+    @article = Article.new(article_params)
+    @article.save
+    redirect_to @article
   end
 
   def show
