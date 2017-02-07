@@ -13,11 +13,19 @@
 
 	<%= render 'articles/tag_list', tag_list: article.interest_list %>
 
+<% if article.user.followed_by? current_user %>
+              <%= link_to "フォロー解除", user_relationships_path(article.user), method: :delete %>
+            <% else %>
+              <%= link_to "フォロー", user_relationships_path(article.user), method: :article %>
+            <% end %>
+
+
 	<% if article.favorited_by? current_user %>
               <%= link_to "いいね解除", article_favorites_path(article), method: :delete %>
             <% else %>
               <%= link_to "いいね", article_favorites_path(article), method: :article %>
     <% end %>
+
 
 <% end %>
 
