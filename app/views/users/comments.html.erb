@@ -1,0 +1,21 @@
+<h1>マイコメント</h1>
+<p>コメント数</p>
+<div class="num"><%= @user.comments.count %></div>
+<br>
+<% if @user.comments.empty? %>
+<p>まだコメントしていません</p>
+<% end %>
+
+<h2>コメント</h2>
+<% @user.comments.each do |comment| %>
+
+	<p><%= comment.body  %></p>
+	<% if comment.image? %>
+		<%= image_tag comment.image %>
+	<% end %>
+	<small>
+		<%= link_to "コメント削除", article_comments_path(comment.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
+	</small>
+<% end %>
+
+<%= paginate @comments %>
