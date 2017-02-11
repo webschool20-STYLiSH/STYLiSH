@@ -1,20 +1,19 @@
-<h2>タイトル</h2>
-<p><%= @article.title %></p>
-<h2>コメント</h2>
-<p><%= @article.body %></p>
+<%= stylesheet_link_tag  "css/articles/show", :media => "all" %>
 
-<% if @article.image? %>
-		<%= image_tag @article.image.url %>
-		<% else %>
-		<p>画像がありません</p>
-<% end %>
+<div class="container">
+	<div class="row">
+		<%= render 'articles/article', article: @article %>
+		<div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-4 col-xs-12">
+			<div class="row">
+				<% if current_user.id == @article.user_id %>
+					<%= link_to "編集", edit_article_path(@article.id), class: "col-xs-12 link btn edit-btn" %>
+					<%= link_to "削除", article_path(@article.id), method: :delete, class: "col-xs-12 link btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
+				<% end %>
 
-<br>
+				<%= link_to "タイムライン", articles_path, class: "col-xs-12 link btn" %>
+				<%= link_to "新しいコーデ", new_article_path, class: "col-xs-12 link btn" %>
+			</div>
+		</div>
+	</div>
+</div>
 
-<% if current_user.id == @article.user_id %>
-	<%= link_to "編集", edit_article_path(@article.id), class: "btn edit-btn" %>
-	<%= link_to "削除", article_path(@article.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
-<% end %>
-
-<%= link_to "タイムラインへ戻る", articles_path, class: "btn" %>
-<%= link_to "新しいコーディネート", new_article_path, class: "btn" %>

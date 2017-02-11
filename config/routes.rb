@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
-  resources :articles
-
   # いらなくなったはず
   # resources :users, :only => [:index, :show, :edit, :update, :destroy]
   root 'articles#index'
