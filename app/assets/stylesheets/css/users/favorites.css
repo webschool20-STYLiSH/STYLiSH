@@ -6,11 +6,11 @@
 a {
   color: inherit; }
 
-.border {
+.border, .relationships {
   list-style: none;
   border: solid 1px #d0d0d0; }
 
-.background_color {
+.background_color, .relationships {
   background-color: #FFF; }
 
 .margin {
@@ -51,3 +51,66 @@ article {
     width: 300px;
     margin: 30px auto;
     text-align: center; }
+
+/*大きめの箱(背景白)に使うscss*/
+.box_main, .relationships {
+  height: 100px;
+  font-size: 30px;
+  text-align: center; }
+  .box_main .text, .relationships .text {
+    display: block;
+    padding: 3%; }
+
+.user_info .image_profile {
+  margin: 30px auto;
+  padding: 10px;
+  width: 262px;
+  height: 262px; }
+
+.user_info .profile_matome.col-md-6 {
+  margin: 40px; }
+
+.user_info .user_name {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 auto; }
+
+.user_info .text_center {
+  text-align: center; }
+
+.user_info .edit, .user_info .follow {
+  display: inline-block;
+  padding: 13px;
+  width: 130px;
+  height: 57px;
+  border-radius: 5px;
+  border: solid 3px #ffe033;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none; }
+
+.user_info .follow {
+  width: 160px; }
+
+.user_info .figure ul {
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  list-style: none; }
+
+.user_info .figure .each {
+  height: 50px;
+  padding: 5px 0; }
+
+.user_info .num {
+  font-size: 20px;
+  color: #ffd700;
+  font-weight: bold; }
+
+.user_info .text_profile {
+  padding: 20px 80px 30px; }
+
+.relationships {
+  margin-top: 30px; }
+  .relationships .inline-block {
+    display: inline-block; }

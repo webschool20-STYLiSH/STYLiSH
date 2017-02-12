@@ -51,3 +51,12 @@ article {
     width: 300px;
     margin: 30px auto;
     text-align: center; }
+
+/*大きめの箱(背景白)に使うscss*/
+.box_main {
+  height: 100px;
+  font-size: 30px;
+  text-align: center; }
+  .box_main .text {
+    display: block;
+    padding: 3%; }

@@ -1,4 +1,8 @@
-<ul>
+<%= stylesheet_link_tag  "css/users/follows", :media => "all" %>
+
+
+
+<!-- <ul>
     <li>
       <%= link_to user_path(@user) do %>
         <div class="text">投稿数</div>
@@ -6,10 +10,6 @@
       <% end %>
     </li>
     <li>
-      <%= link_to follows_user_path(@user) do %>
-        <div class="text">フォロー</div>
-        <div class="num"><%= @user.followings.count %></div>
-      <% end %>
     </li>
     <li>
       <%= link_to followers_user_path(@user) do %>
@@ -23,18 +23,37 @@
         <div class="num"><%= @user.favorites.count %></div>
       <% end %>
     </li>
-</ul>
+</ul> -->
 
-<% @user.followings.each do |u| %>
-    <div>
-        <%= link_to u.name, user_path(u) %>
-        <span>@<%= u.name %></span>
+
+<%#= link_to follows_user_path(@user) do %>
+  <!-- <div class="text">フォロー</div>
+  <div class="num"><%#= @user.followings.count %></div> -->
+<%# end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="user_info">
+      <%= render 'users/profile' %>
     </div>
-    <div class="follow-unfollow">
-        <% if u.followed_by? current_user %>
-          <%= link_to "フォロー解除", user_relationships_path(u), method: :delete %>
-        <% else %>
-          <%= link_to "フォロー", user_relationships_path(u), method: :post %>
-        <% end %>
-    </div>
-<% end %>
+
+    <% if @user.followings.empty? %>
+      <div class="col-xs-12 list-group-item">
+        まだフォローしているひとはいません。
+      </div>
+    <% else %>
+      <div class="col-xs-12 border background_color box_main">
+        <div class="text">フォロー <%= @user.followings.count %>件</div>
+      </div>
+      <% @user.followings.each do |u| %>
+        <%= render 'users/relationships', u: u %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

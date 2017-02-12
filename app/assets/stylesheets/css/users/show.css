@@ -6,11 +6,11 @@
 a {
   color: inherit; }
 
-.border {
+.border, .relationships {
   list-style: none;
   border: solid 1px #d0d0d0; }
 
-.background_color {
+.background_color, .relationships {
   background-color: #FFF; }
 
 .margin {
@@ -51,6 +51,15 @@ article {
     width: 300px;
     margin: 30px auto;
     text-align: center; }
+
+/*大きめの箱(背景白)に使うscss*/
+.box_main, .relationships {
+  height: 100px;
+  font-size: 30px;
+  text-align: center; }
+  .box_main .text, .relationships .text {
+    display: block;
+    padding: 3%; }
 
 .user_info .image_profile {
   margin: 30px auto;
@@ -100,3 +109,8 @@ article {
 
 .user_info .text_profile {
   padding: 20px 80px 30px; }
+
+.relationships {
+  margin-top: 30px; }
+  .relationships .inline-block {
+    display: inline-block; }
