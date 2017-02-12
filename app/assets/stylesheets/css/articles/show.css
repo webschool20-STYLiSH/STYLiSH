@@ -37,20 +37,23 @@ a {
 /*article部分にかけるscss*/
 article {
   box-sizing: border-box;
-  padding: 20px; }
+  padding: 20px;
+  /*	.title{
+		padding: 10px 0 0 0;
+		font-size: 14px;
+	}*/ }
   article .user_name {
     display: inline-block;
     padding: 0 0 0 10px;
     vertical-align: middle;
     font-size: 20px;
     font-weight: bold; }
-  article .title {
-    padding: 10px 0 0 0;
-    font-size: 14px; }
   article .image_article {
     width: 300px;
     margin: 30px auto;
     text-align: center; }
+  article .text {
+    padding: 0 0 30px 0; }
 
 /*大きめの箱(背景白)に使うscss*/
 .box_main {
