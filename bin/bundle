@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby2.3
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 load Gem.bin_path('bundler', 'bundle')
+
+
+#!/usr/bin/env ruby2.3
+# 上の2.3を消すことでherokuが使えるはず（binの中にある2.3は全て消す）
