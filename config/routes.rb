@@ -19,7 +19,13 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
-  resources :articles
+  resources :users, :only => [:index, :show] do
+    get :comments, on: :member
+  end
+
+  resources :articles do 
+    resource :comments, :only => [:create, :destroy]
+  end
 
   # いらなくなったはず
   # resources :users, :only => [:index, :show, :edit, :update, :destroy]

@@ -32,6 +32,8 @@ gem 'acts-as-taggable-on'
 
 gem 'bootstrap-sass'
 
+gem 'pry'
+
 # css&JSの読み込みに使用
 gem 'sprockets', '3.7.1'
 gem 'slim', '2.0.0'
