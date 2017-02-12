@@ -3,12 +3,12 @@
 <div class="num"><%= @user.comments.count %></div>
 <br>
 <% if @user.comments.empty? %>
-<p>まだコメントしていません</p>
+	<p>まだコメントしていません</p>
 <% end %>
 
 <h2>コメント</h2>
 <% @user.comments.each do |comment| %>
-
+	<p><%= link_to comment.try(:user).name %></p>
 	<p><%= comment.body  %></p>
 	<% if comment.image? %>
 		<%= image_tag comment.image %>

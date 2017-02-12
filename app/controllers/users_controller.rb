@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def comments
+      @user = User.find(params[:id])
+      @comments = @user.comments
+      @comments = Comment.page(params[:pages])
+  end
+
   def index
     @users = User.all
   end

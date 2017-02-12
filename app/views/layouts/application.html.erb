@@ -7,10 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    
 <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
+
 
     <%= render 'layouts/shim' %>
   </head>
@@ -18,7 +25,7 @@
     <%= render 'layouts/header' %>
 
   <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
+    <div class="container">
         <%= link_to "STYLiSH", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
@@ -26,13 +33,15 @@
             <!-- <li><%= link_to "Help",   '#' %></li> -->
             <!-- <li><%= link_to "Log in", '#' %></li> -->
             <% if current_user.present? %>
-              <li><%= link_to "Timeline", articles_path %></li>
+             <li><%= link_to "Timeline", articles_path %></li>
               <li><%= link_to "My Page", user_path(current_user) %></li>
               <li><%= link_to "New Coordinate", new_article_path %></li>
+              <li><%= link_to "My comments", comments_user_path(current_user) %></li>  
             <% end %>
           </ul>
         </nav>
-      </div>
+    </div> 
+
   </header>
 
   	<% if user_signed_in? %>

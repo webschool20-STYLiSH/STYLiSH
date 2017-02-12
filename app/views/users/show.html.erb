@@ -150,7 +150,10 @@
             <!-- 何個いいねがあるかもあとで書き足したい -->
 
             <!-- ここらへんにコメント欄を作成予定 -->
-
+            <br>
+              <%= link_to "コメント", article_path(article.id) %>
+              (<%= article.comments.count %>)
+              
           </article>
         </li>
       </ul>

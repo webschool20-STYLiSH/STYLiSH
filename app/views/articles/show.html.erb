@@ -1,6 +1,6 @@
-<h2>タイトル</h2>
+<h2>コーディネート</h2>
 <p><%= @article.title %></p>
-<h2>コメント</h2>
+<h2></h2>
 <p><%= @article.body %></p>
 
 <% if @article.image? %>
@@ -16,5 +16,23 @@
 	<%= link_to "削除", article_path(@article.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
 <% end %>
 
-<%= link_to "タイムラインへ戻る", articles_path, class: "btn" %>
-<%= link_to "新しいコーディネート", new_article_path, class: "btn" %>
+<h2>コメント</h2>	
+<%= form_for [@article, @comment] do |f| %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	
+	<%= f.text_area :body, class: "...", :rows => 2 %>
+	<br>
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+	<%= f.submit 'コメントする' %>
+<% end %>
+
+
+<% @article.comments.each do |comment| %>
+	<p><%= link_to comment.try(:user).name %></p>
+	<p><%= comment.body  %></p>
+	<% if comment.image? %>
+	 	<%= image_tag comment.image %>
+	<% end %>
+<% end %>
+
