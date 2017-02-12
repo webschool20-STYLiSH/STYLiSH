@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :articles
 
+  has_many :comments, dependent: :destroy
+
   has_many :relationships, foreign_key: :follower_id
   has_many :followings, through: :relationships
   has_many :inverse_follows, foreign_key: :following_id, class_name: Relationship

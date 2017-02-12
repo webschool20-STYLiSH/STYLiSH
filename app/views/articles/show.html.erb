@@ -12,8 +12,26 @@
 
 				<%= link_to "タイムライン", articles_path, class: "col-xs-12 link btn" %>
 				<%= link_to "新しいコーデ", new_article_path, class: "col-xs-12 link btn" %>
+
+				<h2>コメント</h2>
+				<%= form_for [@article, @comment] do |f| %>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+					<%= f.text_area :body, class: "...", :rows => 2 %>
+					<br>
+					<%= f.label :image %>
+					<%= f.file_field :image %>
+					<%= f.submit 'コメントする' %>
+				<% end %>
+
+
+				<% @article.comments.each do |comment| %>
+					<p><%= link_to comment.try(:user).name %></p>
+					<p><%= comment.body  %></p>
+					<% if comment.image? %>
+					 	<%= image_tag comment.image %>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
-
