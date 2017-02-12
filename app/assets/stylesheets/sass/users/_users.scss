@@ -1,0 +1,76 @@
+@import "../_all.scss";
+
+.user_info{
+	.image_profile{
+		margin: 30px auto;
+		padding: 10px;
+		width: 262px;
+		height: 262px;
+	}
+
+	.profile_matome.col-md-6{
+		margin: 40px;
+	}
+
+	.user_name{
+		font-size: 40px;
+		font-weight: bold;
+		margin: 0 auto;
+	}
+
+	.text_center{
+		text-align: center;
+	}
+
+	.edit{
+		display: inline-block;
+		padding: 13px;
+		width: 130px;
+		height: 57px;
+		border-radius: 5px;
+		border: solid 3px #ffe033;
+		font-size: 20px;
+		text-align: center;
+		text-decoration: none
+	}
+
+	.follow{
+		@extend .edit;
+		width: 160px;
+	}
+
+	.figure{
+		ul{
+			height: 50px;
+			text-align: center;
+			text-decoration: none;
+			list-style: none;
+		}
+
+		.each{
+			height: 50px;
+			padding: 5px 0;
+		}
+	}
+
+	.num{
+		font-size: 20px;
+		color: #ffd700;
+		font-weight: bold;
+	}
+
+	.text_profile{
+		padding: 20px 80px 30px;
+	}
+}
+
+.relationships{
+	@extend .box_main;
+	@extend .border;
+	@extend .background_color;
+	margin-top: 30px;
+
+	.inline-block{
+		display: inline-block;
+	}
+}

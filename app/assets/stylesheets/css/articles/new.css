@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/*全体的な部分にかけるscss*/
+* {
+  font-family: Arial, meiryo, sans-serif; }
+
+a {
+  color: inherit; }
+
+.border {
+  list-style: none;
+  border: solid 1px #d0d0d0; }
+
+.background_color {
+  background-color: #FFF; }
+
+.margin {
+  padding: 20px; }
+
+.follow {
+  display: inline-block;
+  float: right;
+  width: 130px;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 3px #ffe033;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none; }
+
+.not_follow {
+  color: #ffe033; }
+
+.followed {
+  background-color: #ffe033;
+  color: #FFF; }
+
+/*article部分にかけるscss*/
+article {
+  box-sizing: border-box;
+  padding: 20px; }
+  article .user_name {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold; }
+  article .title {
+    padding: 10px 0 0 0;
+    font-size: 14px; }
+  article .image_article {
+    width: 300px;
+    margin: 30px auto;
+    text-align: center; }
+
+/*大きめの箱(背景白)に使うscss*/
+.box_main {
+  height: 100px;
+  font-size: 30px;
+  text-align: center; }
+  .box_main .text {
+    display: block;
+    padding: 3%; }

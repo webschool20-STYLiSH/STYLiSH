@@ -11,8 +11,14 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 
-# timelineのページを表示させるのに貼り付けたもの
-Rails.application.config.assets.precompile += %w( SP_page/timeline.css )
+Rails.application.config.assets.precompile += %w( css/articles/edit.css )
+Rails.application.config.assets.precompile += %w( css/articles/index.css )
+Rails.application.config.assets.precompile += %w( css/articles/new.css )
+Rails.application.config.assets.precompile += %w( css/articles/show.css )
 
-# my pageのページを表示させるのに貼り付けたもの
-Rails.application.config.assets.precompile += %w( SP_page/my_page.css )
+Rails.application.config.assets.precompile += %w( css/users/edit.css )
+Rails.application.config.assets.precompile += %w( css/users/favorites.css )
+Rails.application.config.assets.precompile += %w( css/users/followers.css )
+Rails.application.config.assets.precompile += %w( css/users/follows.css )
+Rails.application.config.assets.precompile += %w( css/users/index.css )
+Rails.application.config.assets.precompile += %w( css/users/show.css )
