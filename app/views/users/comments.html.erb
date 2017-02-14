@@ -18,6 +18,7 @@
 			<%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
 		</small>
 	<% end %>
+
 <% end %>
 
 <%= paginate @comments %>

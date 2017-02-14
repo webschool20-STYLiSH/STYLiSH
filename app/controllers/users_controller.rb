@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       @comments = @user.comments
       @comments = Comment.page(params[:pages]).per(12)
       @article = Article.find(params[:id])
+
   end
 
   def index
