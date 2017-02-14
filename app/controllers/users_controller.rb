@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   def comments
       @user = User.find(params[:id])
       @comments = @user.comments
-      @comments = Comment.page(params[:pages])
+      @comments = Comment.page(params[:pages]).per(12)
+      @article = Article.find(params[:id])
   end
 
   def index

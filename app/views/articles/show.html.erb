@@ -30,6 +30,11 @@
 					<% if comment.image? %>
 					 	<%= image_tag comment.image %>
 					<% end %>
+					<% if current_user.id == comment.user_id %>
+						<small>
+							<%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
+						</small>
+					<% end %>
 				<% end %>
 			</div>
 		</div>
