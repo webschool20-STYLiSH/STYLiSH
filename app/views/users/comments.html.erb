@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag  "css/users/comments", :media => "all" %>
 
+
 <div class="container">
 	<div class="row">
 		<div class="box_main">
@@ -11,6 +12,23 @@
 				<% end %>
 			</div>
 		</div>
+
+<!--   念のため前田さんの作成部分も残しておきます   -->
+<!-- <h2>コメント</h2>
+<% @user.comments.each do |comment| %>
+	<p><%= link_to comment.try(:user).name %></p>
+	<p><%= comment.body  %></p>
+	<% if comment.image? %>
+		<%= image_tag comment.image %>
+	<% end %>
+  <% if current_user.id == comment.user_id %>
+    <small>
+      <%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
+    </small>
+  <% end %>
+
+<% end %> -->
+
 
 
 		<div class="comment">
@@ -31,6 +49,12 @@
 						<% end %>
 					</div>
 					<div class="text"><%= comment.body %></div>
+          <% if current_user.id == comment.user_id %>
+            <small>
+              <%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
+            </small>
+          <% end %>
+
 				</div>
 			<% end %>
 		</div>
