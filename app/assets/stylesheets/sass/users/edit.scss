@@ -1,1 +1,27 @@
 @import "_users.scss";
+
+.form_profile{
+	/*descはdescriptionの略*/
+	.desc{
+		display: inline-block;
+		text-align: right;
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.update{
+		@extend .followed;
+	}
+
+	.br{
+		padding: 10px 15px;
+	}
+
+	.profile{
+		width: 300px;
+	}
+
+	.space{
+		padding: 15px 15px 30px 15px;
+	}
+}

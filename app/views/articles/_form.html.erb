@@ -1,21 +1,25 @@
 <%= form_for (article) do |f| %>
 
 	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.file_field :image, class: "image_submit" %>
+	<%= f.text_area :body, class: "field_comment", :rows => 2 %>
+	<%= f.submit "保存", class: "submit followed" %>
+
+	<%#= form_for [@article, @comment] do |f| %>
+		<%#= f.hidden_field :user_id, :value => current_user.id %>
+		<%#= f.text_area :body, class: "field_comment", :rows => 2 %>
+		<%#= f.file_field :image, class: "image_submit" %>
+		<%#= f.submit 'コメントする', class: "submit followed" %>
+	<%# end %>
+
+<% end %>
+
 	<!-- タイトル -->
 	<%#= f.text_field :title, class: "..." %>
 
 	<%#= f.label :image %>
-	<%= f.file_field :image %>
 
-	コメント
-	<%= f.text_field :body, class: "..."%>
-	<br>
-
-	<div class="field">
-		<%= f.label :interest_list, "tag" %><br>
-		<%= text_field_tag 'article[interest_list]', article.interest_list.join(',') %>
-	</div>
-
-	<%= f.submit "保存", class: "..." %>
-
-<% end %>
+	<!-- <div class="field">
+		<%#= f.label :interest_list, "tag" %><br>
+		<%#= text_field_tag 'article[interest_list]', article.interest_list.join(',') %>
+	</div> -->

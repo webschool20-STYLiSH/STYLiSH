@@ -1,4 +1,12 @@
-<h1>新しいコーディネート</h1>
+<%= stylesheet_link_tag  "css/articles/new", :media => "all" %>
 
-<%= render 'form', article: @article %>
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8 col-xs-12 text border background_color comment">
+			<div class="heading">
+				新しいコーデ
+			</div>
+			<%= render 'form', article: @article %>
+		</div>
+	</div>
+</div>

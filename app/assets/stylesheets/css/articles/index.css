@@ -36,9 +36,17 @@ a {
   background-color: #ffe033;
   color: #FFF; }
 
+.heading, .comment .edit, .comment .destroy {
+  display: block;
+  margin: 20px 0 10px 0;
+  height: 50px;
+  font-size: 30px;
+  text-align: center; }
+
 /*article部分にかけるscss*/
 article {
   box-sizing: border-box;
+  height: 530px;
   padding: 20px;
   /*	.title{
 		padding: 10px 0 0 0;
@@ -78,12 +86,6 @@ article {
   .comment .comment_under {
     height: 10px;
     padding: 10px; }
-  .comment .heading, .comment .edit, .comment .destroy {
-    display: block;
-    margin: 20px 0 10px 0;
-    height: 50px;
-    font-size: 30px;
-    text-align: center; }
   .comment .image_profile {
     margin: 0 0 0 20px; }
   .comment .user_name {

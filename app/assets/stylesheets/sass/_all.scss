@@ -45,9 +45,18 @@ a{
 	color: #FFF;
 }
 
+.heading{
+	display: block;
+	margin: 20px 0 10px 0;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
 /*article部分にかけるscss*/
 article{
 	box-sizing: border-box;
+	height: 530px;
 	padding: 20px;
 
 	.user_name{
@@ -111,14 +120,6 @@ article{
 	.comment_under{
 		height: 10px;
 		padding: 10px;
-	}
-
-	.heading{
-		display: block;
-		margin: 20px 0 10px 0;
-		height: 50px;
-		font-size: 30px;
-		text-align: center;
 	}
 
 	.image_profile{
