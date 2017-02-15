@@ -22,15 +22,15 @@
 					<% if article.user.followed_by? current_user %>
 						<div class="follow not_follow"><%= link_to "フォローする", user_relationships_path(article.user), method: :delete %></div>
 					<% else %>
-						<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(article.user), method: :article %></div>
+						<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(article.user), method: :post %></div>
 					<% end %>
 				<% end %>
 			</div>
 
 			<!-- タイトル -->
-			<div class="title">
-				<%= link_to article.title, article_path(article.id) %>
-			</div>
+<!-- 			<div class="title">
+				<%#= link_to article.title, article_path(article.id) %>
+			</div> -->
 
 			<!-- 画像 -->
 			<div class="image_article">
@@ -39,6 +39,11 @@
 				<% else %>
 					<p>画像がありません</p>
 				<% end %>
+			</div>
+
+			<!-- body -->
+			<div class="text">
+				<%= article.body %>
 			</div>
 
 			<!-- タグ -->

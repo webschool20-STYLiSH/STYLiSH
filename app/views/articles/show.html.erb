@@ -1,30 +1,132 @@
 <%= stylesheet_link_tag  "css/articles/show", :media => "all" %>
 
+
 <div class="container">
 	<div class="row">
-		<%= render 'articles/article', article: @article %>
-		<div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-4 col-xs-12">
-			<div class="row">
-				<% if current_user.id == @article.user_id %>
-					<%= link_to "編集", edit_article_path(@article.id), class: "col-xs-12 link btn edit-btn" %>
-					<%= link_to "削除", article_path(@article.id), method: :delete, class: "col-xs-12 link btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
-				<% end %>
 
-				<%= link_to "タイムライン", articles_path, class: "col-xs-12 link btn" %>
-				<%= link_to "新しいコーデ", new_article_path, class: "col-xs-12 link btn" %>
+<!-- Articleの追従 -->
+<!-- モバイルのサイズに対応していません、すみません… -->
 
-				<h2>コメント</h2>
+		<div data-spy="affix">
+			<ul class="margin col-lg-4 col-md-6 col-xs-12" style="width: 400px;">
+				<li class="border">
+					<article class="background_color">
+
+						<div>
+							<!-- プロフィール画像 -->
+							<span>
+								<% if @article.user.image.present? %>
+							    	<%= link_to image_tag(@article.user.image.url, {:size => "30x30"}), user_path(@article.user.id) %>
+							    <% else %>
+							    	<%= image_tag '画像がありません' %>
+							    <% end %>
+							</span>
+
+					    	<!-- ユーザー名 -->
+					    	<span class="user_name">
+					    		<%= link_to @article.user.name, user_path(@article.user.id) %>
+					    	</span>
+
+							<!-- フォロー -->
+							<% if @article.user_id != current_user.id %>
+								<% if @article.user.followed_by? current_user %>
+									<div class="follow not_follow"><%= link_to "フォローする", user_relationships_path(@article.user), method: :delete %></div>
+								<% else %>
+									<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(@article.user), method: :@post %></div>
+								<% end %>
+							<% end %>
+						</div>
+
+						<!-- 画像 -->
+						<div class="image_article">
+							<% if @article.image? %>
+								<%= image_tag @article.image.url %>
+							<% else %>
+								<p>画像がありません</p>
+							<% end %>
+						</div>
+
+						<!-- body -->
+						<div class="text">
+							<%= @article.body %>
+						</div>
+
+						<!-- タグ -->
+						<%= render 'articles/tag_list', tag_list: @article.interest_list %>
+
+
+						<!-- いいね -->
+						<% if @article.favorited_by? current_user %>
+							<%= link_to image_tag('fav.png', {:width => '25', :height => '25'}), article_favorites_path(@article), method: :delete %>
+							<%#= link_to "いいね済", article_favorites_path(article), method: :delete %>
+						<% else %>
+							<%= link_to image_tag('un_fav.png', {:width => '25', :height => '25'}), article_favorites_path(@article), method: :post %>
+						<% end %>
+						<!-- 何個いいねがあるかもあとで書き足したい -->
+
+						<!-- ここらへんにコメント欄を作成予定 -->
+						<%= link_to "コメント", article_path(@article.id) %>
+			   			(<%= @article.comments.count %>)
+					</article>
+				</li>
+			</ul>
+		</div>
+
+<!--   追従Articleはここまで   -->
+    
+<!-- 以下は編集・削除・コメント  -->
+
+		<div class="row comment">
+			<% if current_user.id == @article.user_id %>
+				<div class="col-lg-offset-6 col-lg-4 col-md-offset-6 col-md-6 col-xs-12">
+					<%= link_to "編集", edit_article_path(@article.id), class: "edit btn edit-btn" %>
+				</div>
+				<div class="col-lg-offset-6 col-lg-4 col-md-offset-6 col-md-6 col-xs-12">
+					<%= link_to "削除", article_path(@article.id), method: :delete, class: "destroy btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
+				</div>
+			<% end %>
+
+			<%#= link_to "タイムライン", articles_path, class: "col-xs-12 link btn" %>
+			<%#= link_to "新しいコーデ", new_article_path, class: "col-xs-12 link btn" %>
+
+
+			<% @article.comments.each do |comment| %>
+				<div class="col-lg-offset-5 col-lg-6 col-md-offset-6 col-md-6 col-xs-12 comment_under"></div>
+				<div class="col-lg-offset-5 col-lg-6 col-md-offset-6 col-md-6 col-xs-12 box_comment">
+					<div class="heading">コメント</div>
+					<span class="image_profile">
+						<% if comment.user.image.present? %>
+					    	<%= link_to image_tag(comment.user.image.url, {:size => "30x30"}), user_path(comment.user.id) %>
+					    <% else %>
+					    	<%= image_tag '画像がありません' %>
+					    <% end %>
+					</span>
+					<div class="user_name"><%= link_to comment.try(:user).name %></div>
+					<div class="image">
+						<% if comment.image? %>
+					 		<%= image_tag(comment.image, :size => "300x300") %>
+						<% end %>
+					</div>
+					<div class="text"><%= comment.body %></div>
+          <% if current_user.id == comment.user_id %>
+						<small>
+							<%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
+						</small>
+					<% end %>
+				</div>
+			<% end %>
+
+			<div class="col-lg-offset-5 col-lg-6 col-md-offset-6 col-md-6 col-xs-12 comment_under"></div>
+			<div class="col-lg-offset-5 col-lg-6 col-md-offset-6 col-md-6 col-xs-12 box_comment">
+				<div class="heading">新規コメント</div>
 				<%= form_for [@article, @comment] do |f| %>
 					<%= f.hidden_field :user_id, :value => current_user.id %>
-					<%= f.text_area :body, class: "...", :rows => 2 %>
-					<br>
-					<%= f.label :image %>
-					<%= f.file_field :image %>
-					<%= f.submit 'コメントする' %>
-				<% end %>
+					<%= f.text_area :body, class: "field_comment", :rows => 2 %>
+					<%= f.file_field :image, class: "image_submit" %>
+					<%= f.submit 'コメントする', class: "submit followed" %>
 
-
-				<% @article.comments.each do |comment| %>
+<!--     念のため前田さんの作成部分も残しておきます     -->
+<!-- 				<% @article.comments.each do |comment| %>
 					<p><%= link_to comment.try(:user).name %></p>
 					<p><%= comment.body  %></p>
 					<% if comment.image? %>
@@ -35,9 +137,25 @@
 							<%= link_to "コメント削除", [@article, comment], method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
 						</small>
 					<% end %>
+ -->
 
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+<!-- 追従用のscript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<!-- <script type="text/javascript">
+    $(function(){
+        $('.my_affix').affix({
+            offset: {
+                top: 50,
+                bottom: 50
+            }
+        });
+    });
+    </script> -->

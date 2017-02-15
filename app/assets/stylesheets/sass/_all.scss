@@ -7,9 +7,13 @@ a{
 	color: inherit;
 }
 
-.border{
-	list-style: none;
+.border_line{
 	border: solid 1px #d0d0d0;
+}
+
+.border{
+	@extend .border_line;
+	list-style: none;
 }
 
 .background_color{
@@ -41,9 +45,18 @@ a{
 	color: #FFF;
 }
 
+.heading{
+	display: block;
+	margin: 20px 0 10px 0;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
 /*article部分にかけるscss*/
 article{
 	box-sizing: border-box;
+	height: 530px;
 	padding: 20px;
 
 	.user_name{
@@ -54,15 +67,19 @@ article{
 	font-weight: bold;
 	}
 
-	.title{
+/*	.title{
 		padding: 10px 0 0 0;
 		font-size: 14px;
-	}
+	}*/
 
 	.image_article{
 		width: 300px;
 		margin: 30px auto;
 		text-align: center;
+	}
+
+	.text{
+		padding: 0 0 30px 0;
 	}
 }
 
@@ -76,5 +93,68 @@ article{
 	.text{
 	display: block;
 	padding: 3%;
+	}
+}
+
+
+/*コメントに使うscss*/
+.comment{
+	.edit, .destroy{
+		@extend .border;
+		@extend .background_color;
+		@extend .heading;
+	}
+
+	.box_comment{
+		@extend .border;
+		@extend .background_color;
+	/*	border-top: solid 1px #d0d0d0;
+		border-right: solid 1px #d0d0d0;
+		border-left: solid 1px #d0d0d0;*/
+	}
+
+	/*.border_bottom{
+		border-bottom: solid 1px #d0d0d0;
+	}*/
+
+	.comment_under{
+		height: 10px;
+		padding: 10px;
+	}
+
+	.image_profile{
+		margin: 0 0 0 20px;
+	}
+
+	.user_name{
+		display: inline-block;
+		padding: 0 0 0 10px;
+		vertical-align: middle;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.image{
+		text-align: center;
+		margin: 30px;
+	}
+
+	.text{
+		margin: 20px;
+	}
+
+	.field_comment{
+		width: 100%;
+		height: 100px;
+		margin: 0 auto;
+	}
+
+	.image_submit{
+		margin: 15px 0;
+	}
+
+	.submit{
+		margin: 15px 0 30px 0;
+		font-weight: bold;
 	}
 }

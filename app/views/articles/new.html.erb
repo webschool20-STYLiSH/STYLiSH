@@ -1,20 +1,12 @@
-<h1>新しいコーディネート</h1>
+<%= stylesheet_link_tag  "css/articles/new", :media => "all" %>
 
-<%= form_for (@article) do |f| %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	タイトル
-	<%= f.text_field :title, class: "..." %>
-	コメント
-	<%= f.text_field :body, class: "..."%>
-	<br>
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-	<div class="field">
-		<%= f.label :interest_list, "tag" %><br>
-		<%= text_field_tag 'article[interest_list]', @article.interest_list.join(',') %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8 col-xs-12 text border background_color comment">
+			<div class="heading">
+				新しいコーデ
+			</div>
+			<%= render 'form', article: @article %>
+		</div>
 	</div>
-	<%= f.submit "保存", class: "..." %>
-
-<% end %>
-
-<%= link_to "タイムラインへ戻る", articles_path, class: "btn" %>
+</div>

@@ -6,11 +6,13 @@
 a {
   color: inherit; }
 
-.border, .relationships {
-  list-style: none;
+.border_line, .border, .comment .edit, .comment .user_info .follow, .user_info .comment .follow, .comment .destroy, .comment .box_comment, .relationships {
   border: solid 1px #d0d0d0; }
 
-.background_color, .relationships {
+.border, .comment .edit, .comment .user_info .follow, .user_info .comment .follow, .comment .destroy, .comment .box_comment, .relationships {
+  list-style: none; }
+
+.background_color, .comment .edit, .comment .user_info .follow, .user_info .comment .follow, .comment .destroy, .comment .box_comment, .relationships {
   background-color: #FFF; }
 
 .margin {
@@ -30,27 +32,38 @@ a {
 .not_follow {
   color: #ffe033; }
 
-.followed {
+.followed, .form_profile .update {
   background-color: #ffe033;
   color: #FFF; }
+
+.heading, .comment .edit, .comment .user_info .follow, .user_info .comment .follow, .comment .destroy {
+  display: block;
+  margin: 20px 0 10px 0;
+  height: 50px;
+  font-size: 30px;
+  text-align: center; }
 
 /*article部分にかけるscss*/
 article {
   box-sizing: border-box;
-  padding: 20px; }
+  height: 530px;
+  padding: 20px;
+  /*	.title{
+		padding: 10px 0 0 0;
+		font-size: 14px;
+	}*/ }
   article .user_name {
     display: inline-block;
     padding: 0 0 0 10px;
     vertical-align: middle;
     font-size: 20px;
     font-weight: bold; }
-  article .title {
-    padding: 10px 0 0 0;
-    font-size: 14px; }
   article .image_article {
     width: 300px;
     margin: 30px auto;
     text-align: center; }
+  article .text {
+    padding: 0 0 30px 0; }
 
 /*大きめの箱(背景白)に使うscss*/
 .box_main, .relationships {
@@ -60,6 +73,41 @@ article {
   .box_main .text, .relationships .text {
     display: block;
     padding: 3%; }
+
+/*コメントに使うscss*/
+.comment {
+  /*.border_bottom{
+		border-bottom: solid 1px #d0d0d0;
+	}*/ }
+  .comment .box_comment {
+    /*	border-top: solid 1px #d0d0d0;
+		border-right: solid 1px #d0d0d0;
+		border-left: solid 1px #d0d0d0;*/ }
+  .comment .comment_under {
+    height: 10px;
+    padding: 10px; }
+  .comment .image_profile {
+    margin: 0 0 0 20px; }
+  .comment .user_name {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold; }
+  .comment .image {
+    text-align: center;
+    margin: 30px; }
+  .comment .text {
+    margin: 20px; }
+  .comment .field_comment {
+    width: 100%;
+    height: 100px;
+    margin: 0 auto; }
+  .comment .image_submit {
+    margin: 15px 0; }
+  .comment .submit {
+    margin: 15px 0 30px 0;
+    font-weight: bold; }
 
 .user_info .image_profile {
   margin: 30px auto;
@@ -114,3 +162,17 @@ article {
   margin-top: 30px; }
   .relationships .inline-block {
     display: inline-block; }
+
+.form_profile {
+  /*descはdescriptionの略*/ }
+  .form_profile .desc {
+    display: inline-block;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold; }
+  .form_profile .br {
+    padding: 10px 15px; }
+  .form_profile .profile {
+    width: 300px; }
+  .form_profile .space {
+    padding: 15px 15px 30px 15px; }
