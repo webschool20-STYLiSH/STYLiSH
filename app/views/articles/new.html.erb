@@ -1,20 +1,4 @@
 <h1>新しいコーディネート</h1>
 
-<%= form_for (@article) do |f| %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	タイトル
-	<%= f.text_field :title, class: "..." %>
-	コメント
-	<%= f.text_field :body, class: "..."%>
-	<br>
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-	<div class="field">
-		<%= f.label :interest_list, "tag" %><br>
-		<%= text_field_tag 'article[interest_list]', @article.interest_list.join(',') %>
-	</div>
-	<%= f.submit "保存", class: "..." %>
+<%= render 'form', article: @article %>
 
-<% end %>
-
-<%= link_to "タイムラインへ戻る", articles_path, class: "btn" %>

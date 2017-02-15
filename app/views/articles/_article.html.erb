@@ -22,7 +22,7 @@
 					<% if article.user.followed_by? current_user %>
 						<div class="follow not_follow"><%= link_to "フォローする", user_relationships_path(article.user), method: :delete %></div>
 					<% else %>
-						<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(article.user), method: :article %></div>
+						<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(article.user), method: :post %></div>
 					<% end %>
 				<% end %>
 			</div>

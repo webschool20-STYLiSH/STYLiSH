@@ -1,21 +1,39 @@
-<h1>マイコメント</h1>
-<p>コメント数</p>
-<div class="num"><%= @user.comments.count %></div>
-<br>
-<% if @user.comments.empty? %>
-	<p>まだコメントしていません</p>
-<% end %>
+<%= stylesheet_link_tag  "css/users/comments", :media => "all" %>
 
-<h2>コメント</h2>
-<% @user.comments.each do |comment| %>
-	<p><%= link_to comment.try(:user).name %></p>
-	<p><%= comment.body  %></p>
-	<% if comment.image? %>
-		<%= image_tag comment.image %>
-	<% end %>
-	<small>
-		<%= link_to "コメント削除", article_comments_path(comment.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "Are you sure?" %>
-	</small>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="box_main">
+			<div class="col-md-offset-3 col-md-6 col-xs-12 text border background_color">
+				<% if @user.comments.empty? %>
+					まだコメントしていません
+				<% else %>
+					マイコメント <%= @user.comments.count %>件
+				<% end %>
+			</div>
+		</div>
 
+
+		<div class="comment">
+			<% @user.comments.each do |comment| %>
+				<div class="col-md-offset-3 col-md-6 col-xs-12 comment_under"></div>
+				<div class="col-md-offset-3 col-md-6 col-xs-12 box_comment">
+					<div class="image_profile">
+						<% if comment.user.image.present? %>
+					    	<%= link_to image_tag(comment.user.image.url, {:size => "30x30"}), user_path(comment.user.id) %>
+					    <% else %>
+					    	<%= image_tag '画像がありません' %>
+					    <% end %>
+					</div>
+					<div class="user_name"><%= link_to comment.try(:user).name %></div>
+					<div class="image">
+						<% if comment.image? %>
+					 		<%= image_tag(comment.image, :size => "300x300") %>
+						<% end %>
+					</div>
+					<div class="text"><%= comment.body %></div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 <%= paginate @comments %>
