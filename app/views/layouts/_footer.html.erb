@@ -1,12 +1,19 @@
 <footer class="footer">
-  <small>
-    The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
-  </small>
   <nav>
     <ul>
-       <li><%= link_to "Timeline", articles_path, class: "btn" %></li>
-      <li><%= link_to "New cordinate", new_article_path, class: "btn" %></li>
+      <% if current_user.present? %>
+            <li><%= link_to "Timeline", articles_path %></li>
+            <li><%= link_to "MyPage", user_path(current_user) %></li>
+            <li><%= link_to "NewCoordinate", new_article_path %></li>
+            <li><%= link_to "MyComments", comments_user_path(current_user) %></li>  
+      <% end %>
     </ul>
+    <% if user_signed_in? %>
+      Logged in as <%= current_user.name %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    <% end %>
   </nav>
 </footer>

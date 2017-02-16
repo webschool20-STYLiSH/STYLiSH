@@ -18,8 +18,8 @@
  */
 
 body {
-  padding-top: 60px;
-  background-color: #ffffbc;
+  padding-top:  10px;
+  background-color: #ffff99;
 }
 
 section {
@@ -40,7 +40,7 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5,  {
   line-height: 1;
 }
 
@@ -67,24 +67,12 @@ p {
 
 /* header */
 
-
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-
-  font-family: serif;
-
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
+h6{ 
+  padding-top: 4px;
+  padding-left: 15px;
+  font-size: 2.0em;
+  font-family: Times New Roman;
   font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
 }
 
 /* footer */
