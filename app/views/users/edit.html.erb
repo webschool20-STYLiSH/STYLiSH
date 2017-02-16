@@ -1,48 +1,52 @@
-<h1>マイページを編集</h1>
-<%= form_for (@user) do |f| %>
-  <div class="field">
-    ユーザー名<br />
-    <%= f.text_field :name, autofocus: true %>
+<%= stylesheet_link_tag  "css/users/edit", :media => "all" %>
+
+
+<div class="container">
+  <div class="row">
+    <div class=" col-md-offset-2 col-md-8 col-xs-12 background_color border">
+      <div class="heading">マイページ編集</div>
+      <div class="row form_profile">
+        <%= form_for (@user) do |f| %>
+
+          <div>
+            <div class="col-xs-4 desc br">プロフィール画像</div>
+            <div class="col-xs-8 br">
+              <% if @user.image? %>
+              	<%=  image_tag @user.image.url %>
+              <% else %>
+              	<%= image_tag '画像がありません' %>
+              <% end %>
+            </div>
+            <div class="col-xs-offset-4 col-xs-8 br"><%= f.file_field :image, autofocus: true %></div>
+          </div>
+
+          <div>
+            <div class="col-xs-4 desc br">ユーザー名</div>
+            <div class="col-xs-8 br"><%= f.text_field :name, autofocus: true %></div>
+          </div>
+
+          <div>
+            <div class="col-xs-4 desc br">プロフィール</div>
+            <div class="col-xs-8 br"><%= f.text_area :profile, autofocus: true, class: 'profile' %></div>
+          </div>
+
+          <div>
+            <div class="col-xs-4 desc br">性別</div>
+            <div class="col-xs-8 br"><%= f.text_field :gender, autofocus: true %></div>
+          </div>
+
+          <div>
+            <div class="col-xs-4 desc br">国名</div>
+            <div class="col-xs-8 br"><%= f.text_field :country, autofocus: true %></div>
+          </div>
+
+          <div class="col-xs-offset-4 col-xs-1 br space">
+            <%= f.submit "更新", class: 'update' %>
+          </div>
+
+        <% end %>
+      </div>
+      <%#= link_to "マイページへ戻る", user_path, class: "btn" %>
+    </div>
   </div>
-
-   <div class="field">
-    プロフィール画像<br />
-    <%= f.file_field :image, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <% if @user.image? %>
-    	<%=  image_tag @user.image.url %>
-    <% else %>
-    	<%= image_tag '画像がありません' %>
-    <% end %>
-  </div>
-
-
- <!--   <div class="field">
-    メール<br />
-    <%#= f.email_field :email, autofocus: true %>
-  </div> -->
-
-   <div class="field">
-    プロフィール<br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="field">
-    性別<br />
-    <%= f.text_field :gender, autofocus: true %>
-  </div>
-
-  <div class="field">
-    国名<br />
-    <%= f.text_field :country, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-
-<% end %>
-
-<%= link_to "マイページへ戻る", user_path, class: "btn" %>
+</div>

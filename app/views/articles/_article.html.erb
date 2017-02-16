@@ -1,0 +1,69 @@
+<ul class="margin col-lg-4 col-md-6 col-xs-12">
+	<li class="border">
+		<article class="background_color">
+
+			<div>
+				<!-- プロフィール画像 -->
+				<span>
+					<% if article.user.image.present? %>
+				    	<%= link_to image_tag(article.user.image.url, {:size => "30x30"}), user_path(article.user.id) %>
+				    <% else %>
+				    	<%= image_tag '画像がありません' %>
+				    <% end %>
+				</span>
+
+		    	<!-- ユーザー名 -->
+		    	<span class="user_name">
+		    		<%= link_to article.user.name, user_path(article.user.id) %>
+		    	</span>
+
+				<!-- フォロー -->
+				<% if article.user_id != current_user.id %>
+					<% if article.user.followed_by? current_user %>
+						<div class="follow not_follow"><%= link_to "フォローする", user_relationships_path(article.user), method: :delete %></div>
+					<% else %>
+						<div class="follow followed"><%= link_to "フォロー中", user_relationships_path(article.user), method: :post %></div>
+					<% end %>
+				<% end %>
+			</div>
+
+			<!-- タイトル -->
+<!-- 			<div class="title">
+				<%#= link_to article.title, article_path(article.id) %>
+			</div> -->
+
+			<!-- 画像 -->
+			<div class="image_article">
+				<% if article.image? %>
+					<%= image_tag article.image.url %>
+				<% else %>
+					<p>画像がありません</p>
+				<% end %>
+			</div>
+
+			<!-- body -->
+			<div class="text">
+				<%= article.body %>
+			</div>
+
+			<!-- タグ -->
+			<%= render 'articles/tag_list', tag_list: article.interest_list %>
+
+
+			<!-- いいね -->
+			<% if article.favorited_by? current_user %>
+				<%= link_to image_tag('fav.png', {:width => '25', :height => '25'}), article_favorites_path(article), method: :delete %>
+				<%#= link_to "いいね済", article_favorites_path(article), method: :delete %>
+			<% else %>
+				<%= link_to image_tag('un_fav.png', {:width => '25', :height => '25'}), article_favorites_path(article), method: :article %>
+			<% end %>
+			<!-- 何個いいねがあるかもあとで書き足したい -->
+
+			<!-- ここらへんにコメント欄を作成予定 -->
+			<%= link_to "コメント", article_path(article.id) %>
+   			(<%= article.comments.count %>)
+
+
+		</article>
+	</li>
+</ul>
