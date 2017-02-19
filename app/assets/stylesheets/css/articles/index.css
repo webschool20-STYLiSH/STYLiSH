@@ -68,7 +68,8 @@ article {
     height: 300px; }
   article .text {
     height: 75px;
-    padding: 0; }
+    padding: 0;
+    word-break: break-word; }
 
 /*大きめの箱(背景白)に使うscss*/
 .box_main {
