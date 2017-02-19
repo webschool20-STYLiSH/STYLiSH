@@ -1,17 +1,25 @@
-<% @users.each do |u| %>
-    <div>
-        <%= link_to u.name, user_path(u) %>
-        <span>@<%= u.name %></span>
-    </div>
+<%= stylesheet_link_tag  "css/users/index", :media => "all" %>
 
-   <!--  <div class="bio">
-        <%#= u.bio %>
-    </div> -->
-    <div class="follow-unfollow">
-        <% if u.followed_by? current_user %>
-          <%= link_to "フォロー解除", user_relationships_path(u), method: :delete %>
-        <% else %>
-          <%= link_to "フォロー", user_relationships_path(u), method: :post %>
-        <% end %>
+<div class="container">
+  <div class="row">
+    <div class="user_info">
+      <% @users.each do |u| %>
+        <div class="col-xs-12 relationships">
+          <% if u.image? %>
+            <%= link_to image_tag(u.image.url, {:size => "50x50"}), user_path(u.id) %>
+          <% else %>
+            <%= image_tag('/No_image.png', :size => "50x50") %>
+          <% end %>
+          <%= link_to u.name, user_path(u), class: 'text inline-block' %>
+          <div class="follow-unfollow inline-block">
+            <% if u.followed_by? current_user %>
+              <%= link_to "フォロー解除", user_relationships_path(u), method: :delete %>
+            <% else %>
+              <%= link_to "フォロー", user_relationships_path(u), method: :post %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-<% end %>
+  </div>
+</div>

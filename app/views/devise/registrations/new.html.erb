@@ -14,7 +14,7 @@
 
   <div class="field">
     性別<br />
-    <%= f.text_field :gender, autofocus: true %>
+    <%= f.select :gender, options_for_select(["male", "female"]), {}, { autofocus: 'true'} %>
   </div>
 
   <div class="field">
