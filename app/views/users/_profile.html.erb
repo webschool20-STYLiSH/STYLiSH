@@ -4,7 +4,7 @@
     <% if @user.image? %>
       <%= image_tag(@user.image.url, :size => "240x240") %>
     <% else %>
-      <%= image_tag '画像がありません' %>
+      <%= image_tag('/No_image.png', :size => "240x240") %>
     <% end %>
   </div>
 </div>
